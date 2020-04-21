@@ -7,20 +7,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import static java.lang.Integer.parseInt;
-
 @Slf4j
 @RestController
 public class OperationController {
 
     @PostMapping(value = "/api/add")
     public Output add(@RequestBody Input input){
-        log.info("Add request received: " + input);
-        return new Output(String.valueOf(parseInt(input.getX()) + parseInt(input.getY())));
+        log.info(String.format("Add request received. X: %d and Y: %d", input.getX(), input.getY()));
+        return new Output(String.valueOf(input.getX() + input.getY()));
     }
 
     @PostMapping(value = "/api/diff")
     public Output diff(@RequestBody Input input){
-        return new Output(String.valueOf(parseInt(input.getX()) - parseInt(input.getY())));
+        log.info(String.format("Diff request received. X: %d and Y: %d", input.getX(), input.getY()));
+        return new Output(String.valueOf(input.getX() - input.getY()));
     }
 }
