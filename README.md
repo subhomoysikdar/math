@@ -1,27 +1,28 @@
-# math
-Vmware math
-Does two operations add and diff
+# Math
 
-add:
+Vmware math does two operations add and diff
+
+## API
+
+ADD api for adding numerical string
+
+```bash
 POST http://{ip}/api/add
-payload:
-{
-	"x":"100",
-	"y":"50"
-}
-response:
-{
-    "result": "150"
-}
+```
 
-diff:
+##### Usage
+
+```python
+payload: { "x":"100", "y":"50" } response: { "result": "150" }
+```
+
+DIFF api for subtracting numerical string
+
+```bash
 POST http://{ip}/api/diff
-payload:
-{
-	"x":"100",
-	"y":"50"
-}
-response:
-{
-    "result": "50"
-}
+```
+
+##### Usage
+
+```python
+payload: { "x":"100", "y":"50" } response: { "result": "50" }
